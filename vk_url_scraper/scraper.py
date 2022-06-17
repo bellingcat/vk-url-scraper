@@ -28,6 +28,7 @@ class VkScraper:
             "payload": {"more": "original JSON response as dict which you can parse for more data"}
         }
     """
+
     WALL_PATTERN = re.compile(r"(wall.{0,1}\d+_\d+)")
     PHOTO_PATTERN = re.compile(r"(photo.{0,1}\d+_\d+)")
     VIDEO_PATTERN = re.compile(r"(video.{0,1}\d+_\d+)")
@@ -186,7 +187,7 @@ class VkScraper:
         ----------
         video_ids : List[str]
             list with valid video ids like "video123123_1231"
-            
+
         Returns
         -------
         a list of dict as specified in the class documentation.
@@ -242,7 +243,7 @@ class VkScraper:
         ----------
         photo_ids : List[str]
             list with valid photo ids like "photo123123_1231"
-            
+
         Returns
         -------
         a list of dict as specified in the class documentation.
