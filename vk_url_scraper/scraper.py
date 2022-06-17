@@ -127,7 +127,7 @@ class VkScraper:
                 {
                     "id": f'wall{item["owner_id"]}_{item["id"]}',
                     "text": item.get("text", ""),
-                    "datetime": datetime.fromtimestamp(item.get("date", 0)),
+                    "datetime": datetime.utcfromtimestamp(item.get("date", 0)),
                     "attachments": dict(attachments),
                     "payload": item,
                 }
@@ -161,7 +161,7 @@ class VkScraper:
                 {
                     "id": f'video{item["owner_id"]}_{item["id"]}',
                     "text": item.get("title", ""),
-                    "datetime": datetime.fromtimestamp(item.get("date", 0)),
+                    "datetime": datetime.utcfromtimestamp(item.get("date", 0)),
                     "attachments": {
                         "video": [item.get("player", "")],
                     },
@@ -194,7 +194,7 @@ class VkScraper:
                 {
                     "id": f'photo{item["owner_id"]}_{item["id"]}',
                     "text": item.get("text", ""),
-                    "datetime": datetime.fromtimestamp(item.get("date", 0)),
+                    "datetime": datetime.utcfromtimestamp(item.get("date", 0)),
                     "attachments": {"photo": [item["orig_photo"]["url"]]},
                     "payload": item,
                 }
