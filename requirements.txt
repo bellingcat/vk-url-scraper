@@ -11,3 +11,4 @@ idna==3.3
 requests==2.28.0
 urllib3==1.26.9
 vk-api==11.9.8
+python-dotenv==0.20.0
