@@ -102,7 +102,6 @@ def test_scrape_video_only():
     assert len(res[0]["payload"]) == 31
     assert len(res[0]["attachments"].keys()) == 1
     assert list(res[0]["attachments"].keys()) == ["video"]
-    assert "G4YDIOBUGQ3DKMQ" in res[0]["attachments"]["video"][0]
 
 
 def test_scrape_video_only2():
