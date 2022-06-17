@@ -33,7 +33,7 @@ jobs:
         task:
           - name: Test
             run: |
-              pytest -v --color=yes tests/
+              pytest --color=yes tests/
 
         include:
           - python: '3.10'
