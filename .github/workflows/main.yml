@@ -18,6 +18,8 @@ env:
   # Change this to invalidate existing cache.
   CACHE_PREFIX: v0
   PYTHONPATH: ./
+  VK_USERNAME: ${{ secrets.VK_USERNAME }} 
+  VK_PASSWORD: ${{ secrets.VK_PASSWORD }}
 
 jobs:
   checks:
