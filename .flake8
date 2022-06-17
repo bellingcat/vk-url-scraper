@@ -1,5 +1,5 @@
 [flake8]
-max-line-length = 250
+max-line-length = 25000
 
 ignore =
     # these rules don't play well with black
