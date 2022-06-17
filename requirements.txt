@@ -5,7 +5,6 @@
 #    pipenv lock --requirements
 #
 
--i https://pypi.org/simple
 certifi==2022.6.15
 charset-normalizer==2.0.12
 idna==3.3
