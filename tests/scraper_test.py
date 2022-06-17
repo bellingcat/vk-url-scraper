@@ -1,5 +1,10 @@
-import os, pytest, datetime
+import datetime
+import os
+
+import pytest
+
 from vk_url_scraper import VkScraper
+
 from .util import assert_equal_lists
 
 vks = None

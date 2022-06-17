@@ -1,8 +1,10 @@
-import re, requests
-import vk_api  # used to get api_token after authentication
-from typing import List
-from datetime import datetime
+import re
 from collections import defaultdict
+from datetime import datetime
+from typing import List
+
+import requests
+import vk_api  # used to get api_token after authentication
 
 
 class VkScraper:
