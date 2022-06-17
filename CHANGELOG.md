@@ -8,6 +8,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## Unreleased
 
 ## [0.1.2]
-### Added wall scraper with tests
-### Added photo scraper with tests
-### Added scraper with tests
+* Added wall scraper with tests
+* Added photo scraper with tests
+* Added scraper with tests

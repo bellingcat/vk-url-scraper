@@ -24,6 +24,15 @@ def test_scrape_empty_urll():
     assert [] == vks.scrape("something")
 
 
+def test_scrape_no_vk_parseable_info():
+    assert len(vks.scrape("")) == 0
+    assert len(vks.scrape("google.com")) == 0
+    assert len(vks.scrape("vk.com")) == 0
+    assert len(vks.scrape("vk.com/wall")) == 0
+    assert len(vks.scrape("vk.com/photo")) == 0
+    assert len(vks.scrape("vk.com/video")) == 0
+
+
 def test_scrape_wall_url_with_text_only():
     res = vks.scrape("https://vk.com/wall-1_398461")
     assert len(res) == 1
