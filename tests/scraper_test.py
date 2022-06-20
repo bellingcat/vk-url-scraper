@@ -135,4 +135,8 @@ def test_scrape_video_only2():
     with tempfile.TemporaryDirectory(dir="./") as tempdir:
         vks.download_media(res, tempdir)
         found_files = set(os.listdir(tempdir))
-        assert "video-17546758_456239898_0.webm" in found_files
+        # different systems might attribute different extension
+        assert (
+            "video-17546758_456239898_0.webm" in found_files
+            or "video-17546758_456239898_0.mp4" in found_files
+        )
