@@ -329,6 +329,5 @@ class VkScraper:
                                 vout.write(vin.read())
                             os.remove(filename)
                             filename = new_filename
-                        print(filename)
                         downloaded.append(filename)
         return downloaded
