@@ -23,7 +23,6 @@ Contents
 
    installation
    overview
-   CHANGELOG
 
 .. toctree::
    :hidden:

@@ -2,10 +2,7 @@
 Library to scrape data and especially media links (videos and photos) from vk.com URLs.
 
 
-# TODO
-* docs online from sphinx
-
-## Quick usage
+## Quick usage API
 `pip install vk-url-scraper` to install.
 
 
@@ -43,7 +40,13 @@ print(res[0]["text]) # eg: -> to get the text from code
 
 see [docs] for all available functions. 
 
-### Development
+### TODO
+* docs online from sphinx
+
+## Development
+(more info in [CONTRIBUTING.md](CONTRIBUTING.md)).
+
+1. setup dev environment with `pip install -r dev-requirements` or `pipenv install -r dev-requirements`
 1. setup environment with `pip install -r requirements` or `pipenv install -r requirements`
 2. To run all checks to `make run-checks` (fixes style) or individually
    1. To fix style: `black .` and `isort .` -> `flake8 .` to validate lint
@@ -51,7 +54,18 @@ see [docs] for all available functions.
    3. To test: `pytest .` (`pytest -v --color=yes --doctest-modules tests/ vk_url_scraper/` to user verbose, colors, and test docstring examples)
 3. `make docs` to generate shpynx docs -> edit [config.py](docs/source/conf.py) if needed
 
-### Releasing new version
+## Releasing new version
 1. edit [version.py](vk_url_scraper/version.py) with proper versioning
-2. `git tag vx.y.z` to tag version
-3. `git push origin vx.y.z` -> this will trigger workflow and put project on [pypi](https://pypi.org/project/vk-url-scraper/)
+2. run `./scripts/release.sh` to create a tag and push, alternatively
+   1. `git tag vx.y.z` to tag version
+   2. `git push origin vx.y.z` -> this will trigger workflow and put project on [pypi](https://pypi.org/project/vk-url-scraper/)
+
+### Fixing a failed release
+
+If for some reason the GitHub Actions release workflow failed with an error that needs to be fixed, you'll have to delete both the tag and corresponding release from GitHub. After you've pushed a fix, delete the tag from your local clone with
+
+```bash
+git tag -l | xargs git tag -d && git fetch -t
+```
+
+Then repeat the steps above.

@@ -156,8 +156,6 @@ When you're ready to contribute code to address an open issue, please follow the
 
     If the build fails, it's most likely due to small formatting issues. If the error message isn't clear, feel free to comment on this in your pull request.
 
-    And finally, please update the [CHANGELOG](https://github.com/bellingcat/vk-url-scraper/blob/main/CHANGELOG.md) with notes on your contribution in the "Unreleased" section at the top.
-
     After all of the above checks have passed, you can now open [a new GitHub pull request](https://github.com/bellingcat/vk-url-scraper/pulls).
     Make sure you have a clear description of the problem and the solution, and include a link to relevant issues.
 
