@@ -131,5 +131,8 @@ def test_scrape_video_only():
 
 
 def test_scrape_video_only2():
-    res = vks.scrape("https://vk.com/video-1_456239018")
-    print(res[0]["attachments"]["video"][0])
+    res = vks.scrape("https://vk.com/video-17546758_456239898")
+    with tempfile.TemporaryDirectory(dir="./") as tempdir:
+        vks.download_media(res, tempdir)
+        found_files = set(os.listdir(tempdir))
+        assert "video-17546758_456239898_0.mkv.webm" in found_files

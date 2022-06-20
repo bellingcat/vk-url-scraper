@@ -313,7 +313,8 @@ class VkScraper:
                 elif k == "video":
                     for i, url in enumerate(attachments):
                         filename = os.path.join(destination, f"{r['id']}_{i}.mkv")
-                        ydl = yt_dlp.YoutubeDL({"outtmpl": filename, "quiet": True})
-                        ydl.extract_info(url, download=True)
+                        ydl = yt_dlp.YoutubeDL({"outtmpl": filename, "quiet": True, 'restrictfilenames': True, 'forcefilename': True, })
+                        info = ydl.extract_info(url, download=True)
+                        filename = ydl.prepare_filename(info)
                         downloaded.append(filename)
         return downloaded
