@@ -1,5 +1,6 @@
 .env
 vk_config.v2.json
+output/
 # build artifacts
 
 .eggs/

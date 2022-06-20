@@ -47,7 +47,7 @@ setup(
     url="https://github.com/bellingcat/vk-url-scraper",
     author="Bellingcat",
     author_email="tech@bellingcat.com",
-    license="Apache",
+    license="MIT",
     packages=find_packages(
         exclude=["*.tests", "*.tests.*", "tests.*", "tests"],
     ),

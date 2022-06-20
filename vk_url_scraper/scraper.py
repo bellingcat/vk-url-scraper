@@ -1,10 +1,15 @@
+import os
 import re
 from collections import defaultdict
 from datetime import datetime
 from typing import List
+from urllib.parse import urlparse
 
 import requests
 import vk_api  # used to get api_token after authentication
+import yt_dlp  # to download videos from url
+
+from .utils import mkdir_if_not_exists
 
 
 class VkScraper:
@@ -273,3 +278,42 @@ class VkScraper:
                 }
             )
         return res
+
+    def download_media(self, results: List[dict], destination: str = "./output/") -> List[str]:
+        """
+        Receives a list of dicts as returned by any of the scrape* methods and downloads the URLS present
+        if they are of type photo or video into the destination folder
+
+        Parameters
+        ----------
+        results : List[dict]
+            list with valid dictionary results (see class definition)
+        destination : str
+            the directory to save the downloaded files to. defaults to output/
+
+        Returns
+        -------
+        a list of filenames for the downloaded files
+        """
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"
+        }
+        mkdir_if_not_exists(destination)
+        downloaded = []
+        for r in results:
+            for k, attachments in r["attachments"].items():
+                if k == "photo":
+                    for i, url in enumerate(attachments):
+                        ext = os.path.splitext(urlparse(url).path)[1]
+                        filename = os.path.join(destination, f"{r['id']}_{i}{ext}")
+                        d = requests.get(url, headers=headers)
+                        with open(filename, "wb") as f:
+                            f.write(d.content)
+                            downloaded.append(filename)
+                elif k == "video":
+                    for i, url in enumerate(attachments):
+                        filename = os.path.join(destination, f"{r['id']}_{i}.mkv")
+                        ydl = yt_dlp.YoutubeDL({"outtmpl": filename, "quiet": True})
+                        ydl.extract_info(url, download=True)
+                        downloaded.append(filename)
+        return downloaded

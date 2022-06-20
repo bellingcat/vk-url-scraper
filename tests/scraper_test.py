@@ -1,11 +1,10 @@
 import datetime
 import os
+import tempfile
 
 import pytest
 
 from vk_url_scraper import VkScraper
-
-from .util import assert_equal_lists
 
 vks = None
 
@@ -82,10 +81,28 @@ def test_scrape_wall_url_with_photos_inner_videos_and_links_with_inner_photos():
     assert str(res[0]["datetime"]) == str(datetime.datetime(2022, 3, 24, 11, 1, 9))
     assert len(res[0]["payload"]) == 15
     assert len(res[0]["attachments"].keys()) == 3
-    assert_equal_lists(list(res[0]["attachments"].keys()), ["photo", "link", "video"])
+    for k in ["photo", "link", "video"]:
+        assert k in list(res[0]["attachments"].keys())
     assert len(res[0]["attachments"]["photo"]) == 5
     assert len(res[0]["attachments"]["link"]) == 1
     assert len(res[0]["attachments"]["video"]) == 1
+
+
+def test_scrape_download_multiple_media():
+    res = vks.scrape("https://vk.com/w=wall-17315087_74182")
+
+    with tempfile.TemporaryDirectory(dir="./") as tempdir:
+        vks.download_media(res, tempdir)
+        expect_files = {
+            "wall-17315087_74182_0.jpg",
+            "wall-17315087_74182_1.jpg",
+            "wall-17315087_74182_2.jpg",
+            "wall-17315087_74182_3.jpg",
+            "wall-17315087_74182_4.jpg",
+            "wall-17315087_74182_0.mkv",
+        }
+        found_files = set(os.listdir(tempdir))
+        assert len(expect_files) == len(expect_files & found_files)
 
 
 def test_scrape_photo_only():
