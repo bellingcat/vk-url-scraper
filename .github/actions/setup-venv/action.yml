@@ -19,7 +19,7 @@ runs:
     - shell: bash
       run: |
         # install ffmpeg
-        apt install ffmpeg
+        sudo apt install ffmpeg
 
     - shell: bash
       run: |
