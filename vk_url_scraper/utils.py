@@ -15,7 +15,7 @@ class DateTimeEncoder(json.JSONEncoder):
 
 def captcha_handler(captcha):
     key = input(
-        f"CAPTCHA DETECTED, please solve it and input the solution. {captcha.sid=} {captcha.get_url()=}:"
+        f"CAPTCHA DETECTED, please solve it and input the solution. url={captcha.get_url()}:"
     ).strip()
     return captcha.try_again(key)
 
