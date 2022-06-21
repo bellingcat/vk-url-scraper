@@ -39,7 +39,7 @@ def captcha_handler(captcha):
                 print(f"got response {r.text=}", flush=True)
                 if key := regex_string.search(r.text):
                     print(f"got captcha result {key=}", flush=True)
-                    return captcha.try_again(key[0])
+                    return captcha.try_again(key[1])
             print(f"sleeping {wait} seconds", flush=True)
             time.sleep(wait)
     else:
