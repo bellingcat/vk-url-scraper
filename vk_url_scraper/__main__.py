@@ -30,6 +30,14 @@ def get_argument_parser():
         help="password for the valid vk.com account",
     )
     parser.add_argument(
+        "-t",
+        "--token",
+        action="store",
+        dest="token",
+        required=False,
+        help="optional token, when passed authentication will not be performed - good to avoid captcha issues",
+    )
+    parser.add_argument(
         "-d",
         "--download",
         action=argparse.BooleanOptionalAction,
@@ -50,7 +58,7 @@ def get_argument_parser():
 def main():
     parser = get_argument_parser()
     args = parser.parse_args()
-    vks = VkScraper(args.username, args.password)
+    vks = VkScraper(args.username, args.password, args.token)
     text = " ".join(args.urls)
     res = vks.scrape(text)
     res_json = json.dumps(res, ensure_ascii=False, indent=4, cls=DateTimeEncoder)

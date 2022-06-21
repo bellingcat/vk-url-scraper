@@ -1,10 +1,6 @@
 import json
 import os
-import re
-import time
 from datetime import datetime
-
-import requests
 
 
 class DateTimeEncoder(json.JSONEncoder):
@@ -22,28 +18,8 @@ def mkdir_if_not_exists(folder):
 
 def captcha_handler(captcha):
     print(
-        f"""CAPTCHA DETECTED, please solve it and put the solution into the webpage specified in the 'CAPTCHA_HANDLE_URL' env variable in the next 10min. Put the answer in the format "{captcha.sid}=SOLUTION".
-
-    {captcha.sid=}
-    {captcha.get_url()=}
-    """,
+        f"CAPTCHA DETECTED, please solve it and input the solution. {captcha.sid=} {captcha.get_url()=}",
         flush=True,
     )
-    if "CAPTCHA_HANDLE_URL" in os.environ:
-        url = os.environ["CAPTCHA_HANDLE_URL"]
-        regex_string = re.compile(f"{captcha.sid}=(.*)")
-        for wait in (10 * 6) * [10]:  # tries every 10s for 10min
-            print(f"sending request to {url=}", flush=True)
-            r = requests.get(url)
-            if r.status_code == 200:
-                print(f"got response {r.text=}", flush=True)
-                if key := regex_string.search(r.text):
-                    print(f"got captcha result {key=} {key[1]=}", flush=True)
-                    return captcha.try_again(key[1])
-            print(f"sleeping {wait} seconds", flush=True)
-            time.sleep(wait)
-    else:
-        key = input(f"Enter captcha code for {captcha.get_url()}:").strip()
-        return captcha.try_again(key)
-
-    return False
+    key = input(f"Enter captcha code for {captcha.get_url()}:").strip()
+    return captcha.try_again(key)
