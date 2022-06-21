@@ -18,6 +18,11 @@ runs:
 
     - shell: bash
       run: |
+        # install ffmpeg
+        apt install ffmpeg
+
+    - shell: bash
+      run: |
         # Install prerequisites.
         pip install --upgrade pip setuptools wheel virtualenv
 

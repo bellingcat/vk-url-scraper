@@ -30,8 +30,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # python: ['3.7', '3.10']
-        python: ['3.10']
+        python: ['3.7', '3.10']
         task: # --show-capture=no on purpose
           - name: Test
             run: |
