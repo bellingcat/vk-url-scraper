@@ -1,5 +1,6 @@
 import os
 import re
+import shutil
 from collections import defaultdict
 from datetime import datetime
 from typing import List
@@ -9,7 +10,7 @@ import requests
 import vk_api  # used to get api_token after authentication
 import yt_dlp  # to download videos from url
 
-from .utils import captcha_handler, mkdir_if_not_exists
+from .utils import captcha_handler, suppress_stdout
 
 
 class VkScraper:
@@ -306,7 +307,7 @@ class VkScraper:
         headers = {
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36"
         }
-        mkdir_if_not_exists(destination)
+        os.makedirs(destination, exist_ok=True)
         downloaded = []
         for r in results:
             for k, attachments in r["attachments"].items():
@@ -319,23 +320,30 @@ class VkScraper:
                             f.write(d.content)
                             downloaded.append(filename)
                 elif k == "video":
-                    for i, url in enumerate(attachments):
-                        filename = os.path.join(destination, f"{r['id']}_{i}.%(ext)s")
-                        ydl = yt_dlp.YoutubeDL(
-                            {
-                                "outtmpl": filename,
-                                "quiet": True,
-                                "restrictfilenames": True,
-                                "forcefilename": True,
-                            }
-                        )
-                        info = ydl.extract_info(url, download=True)
-                        filename = ydl.prepare_filename(info)
-                        if "unknown_video" in filename:
-                            new_filename = filename.replace("unknown_video", "mkv")
-                            with open(filename, "rb") as vin, open(new_filename, "wb") as vout:
-                                vout.write(vin.read())
-                            os.remove(filename)
-                            filename = new_filename
-                        downloaded.append(filename)
+                    with suppress_stdout():  # ytdlp is not 100% quiet
+                        for i, url in enumerate(attachments):
+                            filename = os.path.join(destination, f"{r['id']}_{i}.%(ext)s")
+                            ydl = yt_dlp.YoutubeDL(
+                                {
+                                    "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
+                                    "merge_output_format": "mp4",
+                                    "retries": 5,
+                                    "noplaylist": True,
+                                    "outtmpl": filename,
+                                    "quiet": True,
+                                    "restrictfilenames": True,
+                                    "forcefilename": True,
+                                    "simulate": False,
+                                }
+                            )
+                            info = ydl.extract_info(url, download=True)
+                            filename = ydl.prepare_filename(info)
+                            if "unknown_video" in filename:
+                                print(f"before {filename=}")
+                                filename = shutil.copy(
+                                    filename, filename.replace("unknown_video", "mkv")
+                                )
+                                print(f"after {filename=}")
+                                os.remove(filename)
+                            downloaded.append(filename)
         return downloaded

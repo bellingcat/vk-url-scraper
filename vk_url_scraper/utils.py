@@ -1,5 +1,7 @@
 import json
 import os
+import sys
+from contextlib import contextmanager
 from datetime import datetime
 
 
@@ -11,15 +13,21 @@ class DateTimeEncoder(json.JSONEncoder):
         return json.JSONEncoder.default(self, o)
 
 
-def mkdir_if_not_exists(folder):
-    if not os.path.exists(folder):
-        os.makedirs(folder)
-
-
 def captcha_handler(captcha):
-    print(
-        f"CAPTCHA DETECTED, please solve it and input the solution. {captcha.sid=} {captcha.get_url()=}",
-        flush=True,
-    )
-    key = input(f"Enter captcha code for {captcha.get_url()}:").strip()
+    key = input(
+        f"CAPTCHA DETECTED, please solve it and input the solution. {captcha.sid=} {captcha.get_url()=}:"
+    ).strip()
     return captcha.try_again(key)
+
+
+@contextmanager
+def suppress_stdout():
+    # https://thesmithfam.org/blog/2012/10/25/temporarily-suppress-console-output-in-python/
+    # this is used to silence ytdlp which does not fully respects quite=True and outputs filenames to the console
+    with open(os.devnull, "w") as devnull:
+        old_stdout = sys.stdout
+        sys.stdout = devnull
+        try:
+            yield
+        finally:
+            sys.stdout = old_stdout

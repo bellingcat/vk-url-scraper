@@ -2,17 +2,16 @@ import datetime
 import os
 import tempfile
 
+import pytest
+
 from vk_url_scraper import VkScraper
-
-# import pytest
-
 
 vks = None
 
 
-# def test_login_fail():
-#     with pytest.raises(Exception):
-#         VkScraper("invalid", "combination")
+def test_login_fail():
+    with pytest.raises(Exception):
+        VkScraper("invalid", "combination")
 
 
 def test_login_success():
@@ -102,7 +101,7 @@ def test_scrape_download_multiple_media():
             "wall-17315087_74182_2.jpg",
             "wall-17315087_74182_3.jpg",
             "wall-17315087_74182_4.jpg",
-            "wall-17315087_74182_0.mkv",
+            "wall-17315087_74182_0.mp4",
         }
         found_files = set(os.listdir(tempdir))
         assert len(expect_files) == len(expect_files & found_files)
@@ -138,8 +137,4 @@ def test_scrape_video_only2():
     with tempfile.TemporaryDirectory(dir="./") as tempdir:
         vks.download_media(res, tempdir)
         found_files = set(os.listdir(tempdir))
-        # different systems might attribute different extension
-        assert (
-            "video-17546758_456239898_0.webm" in found_files
-            or "video-17546758_456239898_0.mp4" in found_files
-        )
+        assert "video-17546758_456239898_0.mp4" in found_files

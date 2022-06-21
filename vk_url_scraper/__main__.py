@@ -35,7 +35,7 @@ def get_argument_parser():
         action="store",
         dest="token",
         required=False,
-        help="optional token, when passed authentication will not be performed - good to avoid captcha issues",
+        help="optional token, when passed username/password authentication will not be done - good to avoid captcha issues",
     )
     parser.add_argument(
         "-d",
