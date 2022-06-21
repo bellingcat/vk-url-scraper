@@ -339,11 +339,9 @@ class VkScraper:
                             info = ydl.extract_info(url, download=True)
                             filename = ydl.prepare_filename(info)
                             if "unknown_video" in filename:
-                                print(f"before {filename=}")
                                 filename = shutil.copy(
                                     filename, filename.replace("unknown_video", "mkv")
                                 )
-                                print(f"after {filename=}")
                                 os.remove(filename)
                             downloaded.append(filename)
         return downloaded
