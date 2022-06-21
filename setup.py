@@ -33,7 +33,7 @@ with open("vk_url_scraper/version.py", "r") as version_file:
 setup(
     name="vk-url-scraper",
     version=VERSION["VERSION"],
-    description="",
+    description="Scrape VK URLs to fetch info and media - python API or command line tool.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     classifiers=[
@@ -43,7 +43,7 @@ setup(
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
     ],
-    keywords="",
+    keywords=["scraper", "vk", "vkontakte", "vk-api", "media-downloader"],
     url="https://github.com/bellingcat/vk-url-scraper",
     author="Bellingcat",
     author_email="tech@bellingcat.com",
@@ -55,4 +55,9 @@ setup(
     install_requires=read_requirements("requirements.txt"),
     extras_require={"dev": read_requirements("dev-requirements.txt")},
     python_requires=">=3.7",
+    entry_points={
+        'console_scripts': [
+            'vk_url_scraper=vk_url_scraper.__main__:main',
+        ],
+    },
 )

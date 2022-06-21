@@ -20,6 +20,9 @@ vk_url_scraper -u "username here" -p "password here" --urls https://vk.com/wall1
 # you can also have multiple urls
 vk_url_scraper -u "username here" -p "password here" --urls https://vk.com/wall12345_6789 https://vk.com/photo-12345_6789 https://vk.com/video12345_6789
 
+# you can pass a token as well to avoid always authenticating 
+# and possibly getting captch prompts
+vk_url_scraper -u "username" -p "password" -t "vktoken goes here" --urls https://vk.com/wall12345_6789
 
 # save the JSON output into a file
 vk_url_scraper -u "username here" -p "password here" --urls https://vk.com/wall12345_6789 > output.json
