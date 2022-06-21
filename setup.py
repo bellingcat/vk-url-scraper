@@ -56,8 +56,8 @@ setup(
     extras_require={"dev": read_requirements("dev-requirements.txt")},
     python_requires=">=3.7",
     entry_points={
-        'console_scripts': [
-            'vk_url_scraper=vk_url_scraper.__main__:main',
+        "console_scripts": [
+            "vk_url_scraper=vk_url_scraper.__main__:main",
         ],
     },
 )
