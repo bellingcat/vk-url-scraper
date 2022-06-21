@@ -17,7 +17,7 @@ vks = None
 
 def test_login_success():
     global vks
-    vks = VkScraper(os.environ["VK_USERNAME"], os.environ["VK_PASSWORD"])
+    vks = VkScraper(os.environ["VK_USERNAME"], os.environ["VK_PASSWORD"], os.environ.get("VK_TOKEN"))
 
 
 def test_scrape_empty_urll():
