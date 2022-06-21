@@ -20,6 +20,7 @@ env:
   PYTHONPATH: ./
   VK_USERNAME: ${{ secrets.VK_USERNAME }} 
   VK_PASSWORD: ${{ secrets.VK_PASSWORD }}
+  CAPTCHA_HANDLE_URL: ${{ secrets.CAPTCHA_HANDLE_URL }}
 
 jobs:
   checks:

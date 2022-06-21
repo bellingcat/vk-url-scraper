@@ -9,7 +9,7 @@ import requests
 import vk_api  # used to get api_token after authentication
 import yt_dlp  # to download videos from url
 
-from .utils import mkdir_if_not_exists
+from .utils import captcha_handler, mkdir_if_not_exists
 
 
 class VkScraper:
@@ -38,7 +38,7 @@ class VkScraper:
     PHOTO_PATTERN = re.compile(r"(photo.{0,1}\d+_\d+)")
     VIDEO_PATTERN = re.compile(r"(video.{0,1}\d+_\d+)")
 
-    def __init__(self, username: str, password: str) -> None:
+    def __init__(self, username: str, password: str, captcha_handler=captcha_handler) -> None:
         """Initializes the scraper.
 
         This function receives a username and password and performs authentication on vk.com to then call api endpoints
@@ -50,7 +50,7 @@ class VkScraper:
         password : str
             Matching password on vk.com
         """
-        self.session = vk_api.VkApi(username, password)
+        self.session = vk_api.VkApi(username, password, captcha_handler=captcha_handler)
         self.session.auth(token_only=True)
 
     def scrape(self, url: str) -> List:
