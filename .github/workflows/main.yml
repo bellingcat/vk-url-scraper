@@ -35,7 +35,7 @@ jobs:
         task: #  --show-capture=no on purpose
           - name: Test
             run: |
-              pytest  --show-capture=no --color=yes tests/
+              pytest --color=yes tests/
 
         include:
           - python: '3.10'
