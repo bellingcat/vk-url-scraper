@@ -2,16 +2,17 @@ import datetime
 import os
 import tempfile
 
-import pytest
-
 from vk_url_scraper import VkScraper
+
+# import pytest
+
 
 vks = None
 
 
-def test_login_fail():
-    with pytest.raises(Exception):
-        VkScraper("invalid", "combination")
+# def test_login_fail():
+#     with pytest.raises(Exception):
+#         VkScraper("invalid", "combination")
 
 
 def test_login_success():
