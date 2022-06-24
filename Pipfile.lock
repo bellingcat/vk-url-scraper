@@ -232,11 +232,11 @@
         },
         "yt-dlp": {
             "hashes": [
-                "sha256:3a7b59d2fb4b39ce8ba8e0b9c5a37fe20e5624f46a2346b4ae66ab1320e35134",
-                "sha256:deec1009442312c1e2ee5298966842194d0e950b433f0d4fc844ef464b9c32a7"
+                "sha256:3f2899b9082b50c890ce10beda4493fbbc016f4d73b924dfc26be670e5cae9fa",
+                "sha256:ee401a9dcc7e9285b14f13229c3dcefdf387e597f4f4f773dab326aafe3b830c"
             ],
             "index": "pypi",
-            "version": "==2022.5.18"
+            "version": "==2022.6.22.1"
         }
     },
     "develop": {
@@ -894,7 +894,7 @@
                 "sha256:4c586de507202505346f3e32d1363eb9ed6932f0c2f63184dea88983ff4971e2",
                 "sha256:d2bbd99c320a2532ac71ff6a3164867884357da3e3301f0240090c5d2fdac7ec"
             ],
-            "markers": "python_version < '4' and python_full_version >= '3.6.3'",
+            "markers": "python_version < '4.0' and python_full_version >= '3.6.3'",
             "version": "==12.4.4"
         },
         "secretstorage": {
