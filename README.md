@@ -51,7 +51,7 @@ res = vks.scrape("https://vk.com/wall-1_398461")
 
 # scrape any "video" URL
 res = vks.scrape("https://vk.com/video-6596301_145810025")
-print(res[0]["text]) # eg: -> to get the text from code
+print(res[0]["text"]) # eg: -> to get the text from code
 ```
 
 ```python
