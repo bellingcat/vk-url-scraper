@@ -1,5 +1,8 @@
 # vk-url-scraper
-Library to scrape data and especially media links (videos and photos) from vk.com URLs.
+Python library to scrape data, and especially media links like videos and photos, from vk.com URLs.
+
+[![PyPI version](https://badge.fury.io/py/vk-url-scraper.svg)](https://badge.fury.io/py/vk-url-scraper)
+[![PyPI download month](https://img.shields.io/pypi/dm/vk-url-scraper.svg)](https://pypi.python.org/pypi/vk-url-scraper/)
 
 You can use it via the [command line](#command-line-usage) or as a [python library](#python-library-usage).
 
