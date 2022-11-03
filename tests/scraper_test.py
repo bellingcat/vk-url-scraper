@@ -19,7 +19,6 @@ def test_login_custom_file():
     VkScraper(
         os.environ["VK_USERNAME"],
         os.environ["VK_PASSWORD"],
-        os.environ.get("VK_TOKEN"),
         session_file=session_filename,
     )
     assert os.path.isfile(session_filename)
