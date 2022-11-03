@@ -44,7 +44,10 @@ setup(
         "Programming Language :: Python :: 3",
     ],
     keywords=["scraper", "vk", "vkontakte", "vk-api", "media-downloader"],
-    url="https://github.com/bellingcat/vk-url-scraper",
+    project_urls={
+        'Documentation': 'https://github.com/bellingcat/vk-url-scraper',
+        'Documentation': 'https://vk-url-scraper.readthedocs.io/en/latest/',
+    }
     author="Bellingcat",
     author_email="tech@bellingcat.com",
     license="MIT",
