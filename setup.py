@@ -45,9 +45,9 @@ setup(
     ],
     keywords=["scraper", "vk", "vkontakte", "vk-api", "media-downloader"],
     project_urls={
-        'Documentation': 'https://github.com/bellingcat/vk-url-scraper',
-        'Documentation': 'https://vk-url-scraper.readthedocs.io/en/latest/',
-    }
+        "Code": "https://github.com/bellingcat/vk-url-scraper",
+        "Documentation": "https://vk-url-scraper.readthedocs.io/en/latest/",
+    },
     author="Bellingcat",
     author_email="tech@bellingcat.com",
     license="MIT",
