@@ -14,6 +14,18 @@ def test_login_fail():
         VkScraper("invalid", "combination")
 
 
+def test_login_custom_file():
+    session_filename = "test-session.json"
+    VkScraper(
+        os.environ["VK_USERNAME"],
+        os.environ["VK_PASSWORD"],
+        os.environ.get("VK_TOKEN"),
+        session_file=session_filename,
+    )
+    assert os.path.isfile(session_filename)
+    os.unlink(session_filename)
+
+
 def test_login_success():
     global vks
     vks = VkScraper(

@@ -40,7 +40,12 @@ class VkScraper:
     VIDEO_PATTERN = re.compile(r"(video.{0,1}\d+_\d+)")
 
     def __init__(
-        self, username: str, password: str, token: str = None, captcha_handler=captcha_handler
+        self,
+        username: str,
+        password: str,
+        token: str = None,
+        session_file="vk_config.v2.json",
+        captcha_handler=captcha_handler,
     ) -> None:
         """Initializes the scraper.
 
@@ -55,9 +60,17 @@ class VkScraper:
             Matching password on vk.com
         token : str
             Access token received after authenticating, can be found in the vl_config.v2.json file
+        session_file : str
+            File name where the VK session is saved so future logins are easier
+        captcha_handler : func
+            Function that can receive a vk_api captcha instance and help the user solve it, default is a complete CLI handler
         """
         self.session = vk_api.VkApi(
-            username, password, token=token, captcha_handler=captcha_handler
+            username,
+            password,
+            token=token,
+            config_filename=session_file,
+            captcha_handler=captcha_handler,
         )
         if token is None or len(token) == 0:
             self.session.auth(token_only=True)

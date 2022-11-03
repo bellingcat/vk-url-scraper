@@ -1,10 +1,13 @@
 # vk-url-scraper
 Python library to scrape data, and especially media links like videos and photos, from vk.com URLs.
 
+
 [![PyPI version](https://badge.fury.io/py/vk-url-scraper.svg)](https://badge.fury.io/py/vk-url-scraper)
 [![PyPI download month](https://img.shields.io/pypi/dm/vk-url-scraper.svg)](https://pypi.python.org/pypi/vk-url-scraper/)
+[![Documentation Status](https://readthedocs.org/projects/vk-url-scraper/badge/?version=latest)](https://vk-url-scraper.readthedocs.io/en/latest/?badge=latest)
 
-You can use it via the [command line](#command-line-usage) or as a [python library](#python-library-usage).
+
+You can use it via the [command line](#command-line-usage) or as a [python library](#python-library-usage), check the **[documentation](https://vk-url-scraper.readthedocs.io/en/latest/)**.
 
 ## Installation
 You can install the most recent release from [pypi](https://pypi.org/project/vk-url-scraper/) via `pip install vk-url-scraper`.
@@ -25,6 +28,7 @@ vk_url_scraper -u "username here" -p "password here" --urls https://vk.com/wall1
 
 # you can pass a token as well to avoid always authenticating 
 # and possibly getting captch prompts
+# you can fetch the token from the bk_config.v2.json file generated under by searching for "access_token"
 vk_url_scraper -u "username" -p "password" -t "vktoken goes here" --urls https://vk.com/wall12345_6789
 
 # save the JSON output into a file
@@ -96,6 +100,7 @@ To test the command line interface available in [__main__.py](__vk_url_scraper/_
 2. run `./scripts/release.sh` to create a tag and push, alternatively
    1. `git tag vx.y.z` to tag version
    2. `git push origin vx.y.z` -> this will trigger workflow and put project on [pypi](https://pypi.org/project/vk-url-scraper/)
+3. go to https://readthedocs.org/ to deploy new docs version (if webhook is not setup)
 
 ### Fixing a failed release
 
