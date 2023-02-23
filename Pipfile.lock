@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "db41a24084eab3b2ff8328dae834e79803e37237892ffd04eb3060e880a82c92"
+            "sha256": "156e8f27caba7504aa8b13c9aa46f67248fc59eb20fee973f435d13e71f305c4"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -781,11 +781,11 @@
         },
         "isort": {
             "hashes": [
-                "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7",
-                "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
+                "sha256:8bef7dde241278824a6d83f44a544709b065191b95b6e50894bdc722fcba0504",
+                "sha256:f84c2818376e66cf843d497486ea8fed8700b340f308f076c6fb1229dff318b6"
             ],
             "index": "pypi",
-            "version": "==5.10.1"
+            "version": "==5.12.0"
         },
         "jaraco.classes": {
             "hashes": [
@@ -1239,7 +1239,7 @@
                 "sha256:29d341f67fb0f6f586b23ad80e072c8e6ad0b48417db2bde114a4c9746feb228",
                 "sha256:828f867945bbe39817c210a1abfd1bc4895c8b73fcaade56d45357a348a07d7e"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_full_version >= '3.8.0'",
             "version": "==1.0.4"
         },
         "sphinxcontrib-devhelp": {
@@ -1255,7 +1255,7 @@
                 "sha256:0cbdd302815330058422b98a113195c9249825d681e18f11e8b1f78a2f11efff",
                 "sha256:c38cb46dccf316c79de6e5515e1770414b797162b23cd3d06e67020e1d2a6903"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_full_version >= '3.8.0'",
             "version": "==2.0.1"
         },
         "sphinxcontrib-jsmath": {
