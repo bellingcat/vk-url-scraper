@@ -40,3 +40,4 @@ sphinx-autodoc-typehints
 
 # For parsing and comparing version numbers.
 packaging
+python-dotenv==0.21.1
