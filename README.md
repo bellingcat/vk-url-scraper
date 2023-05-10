@@ -28,7 +28,7 @@ vk_url_scraper -u "username here" -p "password here" --urls https://vk.com/wall1
 
 # you can pass a token as well to avoid always authenticating 
 # and possibly getting captcha prompts
-# you can fetch the token from the bk_config.v2.json file generated under by searching for "access_token"
+# you can fetch the token from the vk_config.v2.json file generated under by searching for "access_token"
 vk_url_scraper -u "username" -p "password" -t "vktoken goes here" --urls https://vk.com/wall12345_6789
 
 # save the JSON output into a file

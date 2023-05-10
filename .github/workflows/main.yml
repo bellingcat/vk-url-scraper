@@ -31,10 +31,10 @@ jobs:
       fail-fast: false
       matrix:
         python: ['3.7', '3.10']
-        task: # --show-capture=no on purpose
+        task: # --show-capture=no on purpose, -s for captchas
           - name: Test
             run: |
-              pytest --show-capture=no --color=yes tests/
+              pytest -s --show-capture=no --color=yes tests/
 
         include:
           - python: '3.10'
