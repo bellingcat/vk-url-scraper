@@ -3,7 +3,7 @@ import re
 import shutil
 from collections import defaultdict
 from datetime import datetime
-from typing import Optional, List
+from typing import List, Optional
 from urllib.parse import urlparse
 
 import requests
