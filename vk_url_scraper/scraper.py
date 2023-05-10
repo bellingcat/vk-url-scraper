@@ -3,7 +3,7 @@ import re
 import shutil
 from collections import defaultdict
 from datetime import datetime
-from typing import List
+from typing import Optional, List
 from urllib.parse import urlparse
 
 import requests
@@ -43,7 +43,7 @@ class VkScraper:
         self,
         username: str,
         password: str,
-        token: str = None,
+        token: Optional[str] = None,
         session_file="vk_config.v2.json",
         captcha_handler=captcha_handler,
     ) -> None:
