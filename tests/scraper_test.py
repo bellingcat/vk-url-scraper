@@ -138,7 +138,7 @@ def test_scrape_video_only():
     assert len(res) == 1
     assert res[0]["id"] == "video38556806_456251917"
     assert str(res[0]["datetime"]) == str(datetime.datetime(2022, 3, 24, 5, 42, 38))
-    assert len(res[0]["payload"]) == 31
+    assert len(res[0]["payload"]) == 34
     assert len(res[0]["attachments"].keys()) == 1
     assert list(res[0]["attachments"].keys()) == ["video"]
 
