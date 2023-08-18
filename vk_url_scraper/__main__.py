@@ -19,7 +19,7 @@ def get_argument_parser():
         action="store",
         dest="username",
         required=True,
-        help="username for a valid vk.com account",
+        help="username for a valid vk.com account (pass empty if using --token)",
     )
     parser.add_argument(
         "-p",
@@ -27,7 +27,7 @@ def get_argument_parser():
         action="store",
         dest="password",
         required=True,
-        help="password for the valid vk.com account",
+        help="password for the valid vk.com account (pass empty if using --token)",
     )
     parser.add_argument(
         "-t",

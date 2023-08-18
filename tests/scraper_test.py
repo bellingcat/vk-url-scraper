@@ -150,3 +150,21 @@ def test_scrape_video_only2():
         vks.download_media(res, tempdir)
         found_files = set(os.listdir(tempdir))
         assert "video-17546758_456239898_0.mp4" in found_files
+
+
+def test_scrape_private_video():
+    """
+    > Some videos are kept private and cannot be accessed without a passkey . In this case, send the ID in {owner_id}_{video_id}_{access_key}.
+    From https://dev.vk.com/ru/method/video.get
+    """
+    res = vks.scrape("https://vk.com/wall-127774884_178565")
+
+    with tempfile.TemporaryDirectory(dir="./") as tempdir:
+        vks.download_media(res, tempdir)
+        expect_files = {
+            "wall-127774884_178565_0.mp4",
+            "wall-127774884_178565_1.mp4",
+            "wall-127774884_178565_2.mp4",
+        }
+        found_files = set(os.listdir(tempdir))
+        assert len(expect_files) == len(expect_files & found_files)

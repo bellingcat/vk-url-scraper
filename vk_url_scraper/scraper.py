@@ -37,7 +37,7 @@ class VkScraper:
 
     WALL_PATTERN = re.compile(r"(wall.{0,1}\d+_\d+)")
     PHOTO_PATTERN = re.compile(r"(photo.{0,1}\d+_\d+)")
-    VIDEO_PATTERN = re.compile(r"(video.{0,1}\d+_\d+)")
+    VIDEO_PATTERN = re.compile(r"(video.{0,1}\d+_\d+(?:_\w+)?)")
 
     def __init__(
         self,
@@ -144,10 +144,11 @@ class VkScraper:
                     first_type = a["type"]
                     attachment = a[first_type]
                     if first_type == "video":
+                        video_path = f'video{attachment["owner_id"]}_{attachment["id"]}'
+                        if "access_key" in attachment:
+                            video_path += f"_{attachment['access_key']}"
                         attachments["video"].extend(
-                            self.scrape_videos(f'video{attachment["owner_id"]}_{attachment["id"]}')[
-                                0
-                            ]
+                            self.scrape_videos(video_path)[0]
                             .get("attachments", {})
                             .get("video", [""])
                         )
@@ -352,9 +353,10 @@ class VkScraper:
                             info = ydl.extract_info(url, download=True)
                             filename = ydl.prepare_filename(info)
                             if "unknown_video" in filename:
+                                old_filename = filename
                                 filename = shutil.copy(
-                                    filename, filename.replace("unknown_video", "mkv")
+                                    filename, filename.replace("unknown_video", "mp4")
                                 )
-                                os.remove(filename)
+                                os.remove(old_filename)
                             downloaded.append(filename)
         return downloaded
