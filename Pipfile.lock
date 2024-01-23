@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "4ed4f585754a730a8d70a7807090b2d65604fe90ea08513115eedfd9e4999bf9"
+            "sha256": "1d1631b546ca122099049518541fc986888d12c864474b5de52ec9b2afcbbe84"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1413,7 +1413,7 @@
                 "sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783",
                 "sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_version < '3.11'",
             "version": "==4.9.0"
         },
         "urllib3": {
@@ -1426,8 +1426,12 @@
             "version": "==2.1.0"
         },
         "vk-api": {
-            "git": "git+https://github.com/python273/vk_api.git",
-            "ref": null
+            "hashes": [
+                "sha256:c71021506449afe5b9bbb1c4acb0d86b35a007ddc21678478e46fbbeabd1f3ef",
+                "sha256:c7741e40bc05980c91ed94c84542e1e7e7370e101b5eaa74222958d4130fe3c2"
+            ],
+            "index": "pypi",
+            "version": "==11.9.9"
         },
         "websockets": {
             "hashes": [
@@ -2615,7 +2619,7 @@
                 "sha256:23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783",
                 "sha256:af72aea155e91adfc61c3ae9e0e342dbc0cba726d6cba4b6c72c1f34e47291cd"
             ],
-            "markers": "python_version >= '3.8'",
+            "markers": "python_version < '3.11'",
             "version": "==4.9.0"
         },
         "urllib3": {
