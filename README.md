@@ -97,10 +97,11 @@ To test the command line interface available in [__main__.py](__vk_url_scraper/_
 
 ## Releasing new version
 1. edit [version.py](vk_url_scraper/version.py) with proper versioning
-2. run `./scripts/release.sh` to create a tag and push, alternatively
+2. make sure to run `pipenv run pip freeze > requirements.txt` if you manage libs with pipenv
+3. run `./scripts/release.sh` to create a tag and push, alternatively
    1. `git tag vx.y.z` to tag version
    2. `git push origin vx.y.z` -> this will trigger workflow and put project on [pypi](https://pypi.org/project/vk-url-scraper/)
-3. go to https://readthedocs.org/ to deploy new docs version (if webhook is not setup)
+4. go to https://readthedocs.org/ to deploy new docs version (if webhook is not setup)
 
 ### Fixing a failed release
 
