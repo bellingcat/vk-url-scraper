@@ -339,7 +339,9 @@ class VkScraper:
                             filename = os.path.join(destination, f"{r['id']}_{i}.%(ext)s")
                             ydl = yt_dlp.YoutubeDL(
                                 {
-                                    "format": "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best",
+                                    "format": (
+                                        "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
+                                    ),
                                     "merge_output_format": "mp4",
                                     "retries": 5,
                                     "noplaylist": True,

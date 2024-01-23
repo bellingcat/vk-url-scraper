@@ -13,4 +13,4 @@ run-checks :
 	black .
 	flake8 .
 	mypy .
-	CUDA_VISIBLE_DEVICES='' pytest -v --color=yes --doctest-modules tests/ vk_url_scraper/
+	CUDA_VISIBLE_DEVICES='' pytest -v --color=yes .
