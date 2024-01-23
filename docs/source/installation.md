@@ -1,7 +1,7 @@
 Installation
 ============
 
-**vk-url-scraper** supports Python >= 3.8.
+**vk-url-scraper** supports Python >= 3.10.
 
 ## Installing with `pip`
 

@@ -57,7 +57,7 @@ setup(
     package_data={"vk_url_scraper": ["py.typed"]},
     install_requires=read_requirements("requirements.txt"),
     extras_require={"dev": read_requirements("dev-requirements.txt")},
-    python_requires=">=3.8",
+    python_requires=">=3.10",
     entry_points={
         "console_scripts": [
             "vk_url_scraper=vk_url_scraper.__main__:main",
