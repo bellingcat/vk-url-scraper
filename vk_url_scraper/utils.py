@@ -17,7 +17,7 @@ def captcha_handler(captcha):
     key = input(
         f"CAPTCHA DETECTED, please solve it and input the solution. url= {captcha.get_url()} :"
     ).strip()
-    return captcha.try_again(key)
+    return captcha.try_again(key.strip())
 
 
 @contextmanager
