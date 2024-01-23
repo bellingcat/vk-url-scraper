@@ -81,7 +81,7 @@ def test_scrape_wall_url_with_photos():
         == "Хабаровск\nАллея героев\nПомолимся об укокоении воинов:\nАлександра, Игоря, Эдуарда, \nДионисия, Евгения, Александра, Артемия, Иннокентия, Андрея."
     )
     assert str(res[0]["datetime"]) == str(datetime.datetime(2022, 6, 15, 10, 37, 24))
-    assert len(res[0]["payload"]) == 17
+    assert len(res[0]["payload"]) == 18
     assert len(res[0]["attachments"].keys()) == 1
     assert list(res[0]["attachments"].keys()) == ["photo"]
     assert len(res[0]["attachments"]["photo"]) == 9
@@ -93,7 +93,7 @@ def test_scrape_wall_url_with_photos_inner_videos_and_links_with_inner_photos():
     assert res[0]["id"] == "wall-17315087_74182"
     assert res[0]["text"] == ""
     assert str(res[0]["datetime"]) == str(datetime.datetime(2022, 3, 24, 11, 1, 9))
-    assert len(res[0]["payload"]) == 17
+    assert len(res[0]["payload"]) == 18
     assert len(res[0]["attachments"].keys()) == 3
     for k in ["photo", "link", "video"]:
         assert k in list(res[0]["attachments"].keys())
@@ -128,7 +128,7 @@ def test_scrape_photo_only():
         == "Делимся расписанием конкурса [https://vk.com/wall-1_399468|«Код Петербурга»]. Все важные этапы — на одной схеме \n\nЕсли участвуете, обязательно сохраните себе. Так будет удобнее планировать работу над проектом, и вы точно не упустите лучший момент для отправки сервиса на модерацию."
     )
     assert str(res[0]["datetime"]) == str(datetime.datetime(2022, 6, 7, 9, 43))
-    assert len(res[0]["payload"]) == 15
+    assert len(res[0]["payload"]) == 16
     assert len(res[0]["attachments"].keys()) == 1
     assert list(res[0]["attachments"].keys()) == ["photo"]
     assert len(res[0]["attachments"]["photo"]) == 1

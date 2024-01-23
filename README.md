@@ -20,7 +20,7 @@ To use the library you will need a valid username/password combination for vk.co
 vk_url_scraper --help
 
 # scrape a URL and get the JSON result in the console
-vk_url_scraper -username "username here" --password "password here" --urls https://vk.com/wall12345_6789
+vk_url_scraper --username "username here" --password "password here" --urls https://vk.com/wall12345_6789
 # OR
 vk_url_scraper -u "username here" -p "password here" --urls https://vk.com/wall12345_6789
 # you can also have multiple urls
@@ -89,7 +89,7 @@ see [docs] for all available functions.
 2. To run all checks to `make run-checks` (fixes style) or individually
    1. To fix style: `black .` and `isort .` -> `flake8 .` to validate lint
    2. To do type checking: `mypy .`
-   3. To test: `pytest .` (`pytest -v --color=yes --doctest-modules tests/ vk_url_scraper/` to user verbose, colors, and test docstring examples)
+   3. To test: `pytest .` (`pytest -v --color=yes --doctest-modules tests/ vk_url_scraper/` to use verbose, colors, and test docstring examples)
 3. `make docs` to generate shpynx docs -> edit [config.py](docs/source/conf.py) if needed
 
 To test the command line interface available in [__main__.py](__vk_url_scraper/__main__.py) you need to pass the `-m` option to python like so: `python -m vk_url_scraper -u "" -p "" --urls ...`

@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-vk-api = ">=11.9.9"
 yt-dlp = ">=2023.2.17"
 flake8 = "*"
 mypy = ">=0.961"
@@ -30,6 +29,7 @@ pycryptodomex = ">=3.17"
 requests = ">=2.28.2"
 urllib3 = ">=1.26.14"
 websockets = ">=10.4"
+vk-api = {ref = "77b5a0d51a6bbf54d59554332f28a488615fbd6c", git = "git+https://github.com/python273/vk_api.git"}
 
 [dev-packages]
 sphinx-copybutton = "==0.5.0"
