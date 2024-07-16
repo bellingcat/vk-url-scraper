@@ -59,7 +59,7 @@ class VkScraper:
         password : str
             Matching password on vk.com
         token : str
-            Access token received after authenticating, can be found in the vl_config.v2.json file
+            Access token received after authenticating, can be found in the vk_config.v2.json file
         session_file : str
             File name where the VK session is saved so future logins are easier, this will not be created if token is passed
         captcha_handler : func

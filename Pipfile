@@ -30,7 +30,8 @@ requests = ">=2.28.2"
 urllib3 = ">=1.26.14"
 websockets = ">=10.4"
 # vk-api = {ref = "77b5a0d51a6bbf54d59554332f28a488615fbd6c", git = "git+https://github.com/python273/vk_api.git"}
-vk-api = "*"
+# vk-api = "*"
+vk-api = {ref = "b99dac0ec2f832a6c4b20bde49869e7229ce4742", git = "git+https://github.com/python273/vk_api.git"}
 
 [dev-packages]
 sphinx-copybutton = "==0.5.0"
