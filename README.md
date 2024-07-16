@@ -12,8 +12,11 @@ You can use it via the [command line](#command-line-usage) or as a [python libra
 ## Installation
 You can install the most recent release from [pypi](https://pypi.org/project/vk-url-scraper/) via `pip install vk-url-scraper`.
 
-Currently you need to manually install one dependency (as it is installed from github and not pypi):
-`pip install git+https://github.com/python273/vk_api.git@b99dac0ec2f832a6c4b20bde49869e7229ce4742`
+Currently you need to manually unsintall and re-install one dependency (as it is installed from github and not pypi):
+```bash
+pip uninstall vk-api
+pip install git+https://github.com/python273/vk_api.git@b99dac0ec2f832a6c4b20bde49869e7229ce4742
+```
 
 To use the library you will need a valid username/password combination for vk.com. 
 
