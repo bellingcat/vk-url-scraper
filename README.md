@@ -12,6 +12,9 @@ You can use it via the [command line](#command-line-usage) or as a [python libra
 ## Installation
 You can install the most recent release from [pypi](https://pypi.org/project/vk-url-scraper/) via `pip install vk-url-scraper`.
 
+Currently you need to manually install one dependency (as it is installed from github and not pypi):
+`pip install git+https://github.com/python273/vk_api.git@b99dac0ec2f832a6c4b20bde49869e7229ce4742`
+
 To use the library you will need a valid username/password combination for vk.com. 
 
 ## Command line usage
@@ -98,6 +101,7 @@ To test the command line interface available in [__main__.py](__vk_url_scraper/_
 ## Releasing new version
 1. edit [version.py](vk_url_scraper/version.py) with proper versioning
 2. make sure to run `pipenv run pip freeze > requirements.txt` if you manage libs with pipenv
+   1. if the hardcoded version of [vk_api](https://github.com/python273/vk_api) is still being used, then you must comment/remove that line from the generated requirements file and instruct users to manually install the version from the source as pypi does not allow repo/commit tags. Additionally, add the latest released version, currently `vk-api==11.9.9`. 
 3. run `./scripts/release.sh` to create a tag and push, alternatively
    1. `git tag vx.y.z` to tag version
    2. `git push origin vx.y.z` -> this will trigger workflow and put project on [pypi](https://pypi.org/project/vk-url-scraper/)

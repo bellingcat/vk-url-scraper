@@ -94,7 +94,8 @@ twine==5.1.1
 typing_extensions==4.12.2
 urllib3==2.2.2
 uvicorn==0.30.1
-vk-api @ git+https://github.com/python273/vk_api.git@b99dac0ec2f832a6c4b20bde49869e7229ce4742
+# vk-api @ git+https://github.com/python273/vk_api.git@b99dac0ec2f832a6c4b20bde49869e7229ce4742
+vk-api==11.9.9
 watchfiles==0.22.0
 webencodings==0.5.1
 websockets==12.0
