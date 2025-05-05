@@ -1,6 +1,7 @@
 # vk-url-scraper
 Python library to scrape data, and especially media links like videos and photos, from vk.com URLs.
 
+> This repo has been archived because it relies on a fixed git commit of the vk_api library which we can no longer publish to pypi, see [issue](https://github.com/bellingcat/vk-url-scraper/issues/66). You can still install the latest install. This archived state may change if a solution is found to publish the library to pypi again.
 
 [![PyPI version](https://badge.fury.io/py/vk-url-scraper.svg)](https://badge.fury.io/py/vk-url-scraper)
 [![PyPI download month](https://img.shields.io/pypi/dm/vk-url-scraper.svg)](https://pypi.python.org/pypi/vk-url-scraper/)
