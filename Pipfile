@@ -5,6 +5,15 @@ name = "pypi"
 
 [packages]
 yt-dlp = ">=2023.2.17"
+certifi = ">=2023.7.22"
+charset-normalizer = ">=3.0.1"
+idna = ">=3.4"
+mutagen = ">=1.46.0"
+pycryptodomex = ">=3.17"
+requests = ">=2.28.2"
+urllib3 = ">=1.26.14"
+websockets = ">=10.4"
+vk-api = {ref = "b99dac0ec2f832a6c4b20bde49869e7229ce4742", git = "git+https://github.com/python273/vk_api.git"}
 flake8 = "*"
 mypy = ">=0.961"
 black = ">=22.3.0"
@@ -19,19 +28,8 @@ myst-parser = "<0.19.0,>=0.15.2"
 sphinx-copybutton = ">=0.5.0"
 sphinx-autobuild = ">=2021.3.14"
 sphinx-autodoc-typehints = "*"
+packaging = "*"
 python-dotenv = ">=0.21.1"
-brotli = ">=1.0.9"
-certifi = ">=2023.7.22"
-charset-normalizer = ">=3.0.1"
-idna = ">=3.4"
-mutagen = ">=1.46.0"
-pycryptodomex = ">=3.17"
-requests = ">=2.28.2"
-urllib3 = ">=1.26.14"
-websockets = ">=10.4"
-# vk-api = {ref = "77b5a0d51a6bbf54d59554332f28a488615fbd6c", git = "git+https://github.com/python273/vk_api.git"}
-# vk-api = "*"
-vk-api = {ref = "b99dac0ec2f832a6c4b20bde49869e7229ce4742", git = "git+https://github.com/python273/vk_api.git"}
 
 [dev-packages]
 sphinx-copybutton = "==0.5.0"
@@ -51,7 +49,7 @@ sphinx-autodoc-typehints = "*"
 python-dotenv = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.11"
 
 [pipenv]
 allow_prereleases = true

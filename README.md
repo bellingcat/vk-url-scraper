@@ -90,8 +90,9 @@ see [docs] for all available functions.
 ## Development
 (more info in [CONTRIBUTING.md](CONTRIBUTING.md)).
 
-1. setup dev environment with `pip install -r dev-requirements.txt` or `pipenv install -r dev-requirements.txt`
-1. setup environment with `pip install -r requirements.txt` or `pipenv install -r requirements.txt`
+1. setup dev environment with `pipenv install --dev`
+1. setup environment with `pipenv install -r requirements.txt`
+1. Activate the environment with `pipenv shell` (or prepend `pipenv run` to all commands)
 2. To run all checks to `make run-checks` (fixes style) or individually
    1. To fix style: `black .` and `isort .` -> `flake8 .` to validate lint
    2. To do type checking: `mypy .`

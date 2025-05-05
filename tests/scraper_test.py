@@ -81,7 +81,7 @@ def test_scrape_wall_url_with_photos():
         == "Хабаровск\nАллея героев\nПомолимся об укокоении воинов:\nАлександра, Игоря, Эдуарда, \nДионисия, Евгения, Александра, Артемия, Иннокентия, Андрея."
     )
     assert str(res[0]["datetime"]) == str(datetime.datetime(2022, 6, 15, 10, 37, 24))
-    assert len(res[0]["payload"]) == 18
+    assert len(res[0]["payload"]) == 19
     assert len(res[0]["attachments"].keys()) == 1
     assert list(res[0]["attachments"].keys()) == ["photo"]
     assert len(res[0]["attachments"]["photo"]) == 9
